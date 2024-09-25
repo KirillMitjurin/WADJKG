@@ -1,0 +1,133 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    /*
+       CSS comment
+       The box-sizing CSS property sets how the total width and height of an element are calculated. 
+       If you set box-sizing: border-box; on an element, padding, and border are included in the width and height:
+    */
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+     /* 
+       text-decoration: none - is used here to not show underlining under an anchor element when a mouse hovers over it.
+       Comment it out and check the result on the page.
+     */
+    }
+
+.header {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background-color: gray;
+    border-radius: 1em;
+    position: sticky;
+    height: 10%;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    overflow-x:hidden;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+     /* 
+       list-style: none = No marker is shown 
+     */
+    }
+
+.nav {
+    margin-top: 5px;
+     }
+
+.nav a {
+    padding: 10px 15px;
+    text-transform: none;
+    text-align: center;
+    display: block;
+    color: black;
+    font-size: .99em;
+       }
+
+       @media (min-width: 550px) {
+        .header,
+        .nav {
+            display: flex;
+        }
+        .header {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    
+        /* 
+         Applies when the browser's width is 1000px wide or wider: 
+         */
+    
+    @media (min-width: 550px) {
+        .header {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    @media (max-width: 550px) {
+        .logo {
+            display: none;
+        }
+    }
+
+.nav a:hover {
+    background-color: #7ebeb6;
+    color: #092747;
+        }  
+
+.logo {
+    margin: 0;
+    font-size: 1.1em;
+        }
+            
+#divider {
+    border-left: 2px solid black;
+}
+
+footer {
+    padding: 10px; 
+    background-color: gray;
+    border-radius: 1em;
+    position: static;
+    height: 8.1%;
+    width: 100%;
+    bottom: 0;
+    left: 0%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100%;
+  }
+  
+  .flex-side {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 15px;
+    overflow-y: scroll;
+
+
+  }
+
+  .flex-middle {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 15px;
+    overflow-y: scroll;
+  }

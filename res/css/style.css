@@ -106,6 +106,7 @@ footer {
 }
 
 .flex-container {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -131,3 +132,55 @@ footer {
     border-radius: 15px;
     overflow-y: scroll;
   }
+
+/* Login stuff */
+.login-box {
+    background-color: #D8D8D8;
+    padding: 28px;
+    border-radius: 18px;
+    text-align: center;
+    width: 400px;
+}
+
+.links a {
+    color: #0c6bd8
+}
+
+.links {
+    margin-top: 24px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    background-color: #7ebeb6;
+    color: #092747;
+}
+
+.form-group {
+    margin-bottom: 18px;
+  }
+  
+.form-group input {
+    width: 90%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #7ebeb6;
+    border-radius: 5px;
+    outline: none;
+}
+
+.login-button {
+    width: 70%;
+    padding: 12px;
+    font-size: 14px;
+    background-color: #7ebeb6;
+    color: white;
+    border: #699b95;
+    border-radius: 5px;
+  }
+  
+  .login-button:hover {
+    background-color: #699b95;
+  }
+
+  

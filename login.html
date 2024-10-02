@@ -1,4 +1,5 @@
-<html lang="en"></html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -19,4 +20,28 @@
       ><img src="res/images/user.png" width="50" height="50" alt="User picture"
     /></a>
   </header>
+
+  <div class="flex-container">
+    <div class="login-box">
+      <h2>Welcome to PostIt</h2>
+      <div class="links">
+        <a href="#">Create an account</a>
+        <p>or</p>
+        <p>Please log in</p>
+      </div>
+      <form id="loginForm" onsubmit="return validateForm()" action="index.html">
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email or username" required/>
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Password" required/>
+        </div>
+        <button type="submit" class="login-button">Log in</button>
+      </form>
+      <div class="links">
+        <a href="#">Forgot password?</a>
+      </div>
+    </div>
+  </div>
 </body>
+</html>

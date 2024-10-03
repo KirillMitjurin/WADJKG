@@ -1,0 +1,196 @@
+* {
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.header {
+    padding: 0.5em; /* Header padding */
+    background-color: rgb(184, 184, 184); /* Updated header color */
+    border-radius: 1em;
+    position: sticky;
+    height: 10%; /* Set header height */
+    width: 100%; /* Full width */
+    top: 0;
+    outline: 2px solid rgb(133, 133, 133);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav {
+    margin-top: 0px;
+}
+
+.nav a {
+    padding: 10px 15px;
+    text-align: center;
+    display: block;
+    color: black;
+    font-size: 0.99em;
+}
+
+#divider {
+    border-left: 2px solid black;
+}
+
+@media (min-width: 600px) {
+    .header,
+    .nav {
+        display: flex;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 600px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 599px) {
+    .logo {
+        display: none;
+    }
+    #divider {
+        border-left: none;
+    }
+}
+
+.nav a:hover {
+    background-color: #7ebeb6;
+    color: #092747;
+}
+
+.logo {
+    margin: 0;
+    margin-top: 0.em;
+    font-size: 1.1em;
+}
+
+
+footer {
+    padding: 60px; /* Increased footer padding for thickness */
+    background-color: rgb(184, 184, 184); /* Updated footer color */
+    border-radius: 1em;
+    position: relative;
+    width: 100%; /* Full width */
+    bottom: 0;
+    margin-top: 20px; /* Space between footer and divs */
+    font-size: large;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Align items across the container */
+    align-items: stretch; /* Stretch items to fill height */
+    height: auto; /* Full height minus header/footer */
+    margin-top: 20px; /* Space between header and divs */
+}
+
+.flex-side {
+    flex: 0.5; /* Smaller size for side divs */
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(184, 184, 184); /* Updated side divs color */
+    border-radius: 15px;
+}
+
+.flex-middle {
+    flex: 2; /* Larger size for the middle div */
+    margin: 0 40px; /* Margin to create spacing from the sides */
+    background-color: white; /* Keep middle div red */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* Stack posts vertically */
+    padding: 0; /* Remove padding to ensure posts fill the middle div */
+}
+
+@media (max-width: 599px) {
+    .flex-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .flex-side {
+        display: none; /* Hide side divs */
+    }
+
+    .flex-middle {
+        flex: 1; /* Take full width */
+        margin: 0; /* Remove margin */
+    }
+}
+
+
+.post {
+    background-color: rgb(184, 184, 184); /* Set post background color to match header */
+    padding: 15px; /* Padding inside posts */
+    border-radius: 10px; /* Rounded corners for posts */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    text-align: left; /* Align text to the left */
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0; /* Space between posts only */
+}
+
+/* New styles to eliminate margins around the first and last posts */
+.flex-middle > .post:first-child {
+    margin-top: 0; /* Remove top margin for the first post */
+}
+
+.flex-middle > .post:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last post */
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-pic {
+    width: 50px; /* Set width of user picture */
+    height: 50px; /* Set height of user picture */
+    border-radius: 50%; /* Make the picture circular */
+}
+
+.post-date {
+    font-size: 0.9em; /* Smaller font for date */
+    color: #555; /* Dark gray for date text */
+    font-family:monospace;
+}
+
+.post-image {
+    width: 100%; /* Make the post image responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px 0; /* Space above and below the image */
+}
+
+.post-text {
+    margin: 10px 0; /* Space above and below text */
+    font-size: large;
+    font-family:monospace;
+}
+
+.post-footer {
+    display: flex; /* Align items in footer */
+    align-items: center; /* Center align items */
+}
+
+.thumbs-up {
+    width: 40px; /* Set width for thumbs up image */
+    height: 40px; /* Set height for thumbs up image */
+    margin-right: 10px; /* Space between thumbs up and any additional text */
+}

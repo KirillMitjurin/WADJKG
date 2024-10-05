@@ -135,7 +135,7 @@ footer {
 
 
 .post {
-    background-color: rgb(184, 184, 184); /* Set post background color to match header */
+    background-color: #D8D8D8; /* Set post background color to match header */
     padding: 15px; /* Padding inside posts */
     border-radius: 10px; /* Rounded corners for posts */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */

@@ -145,7 +145,8 @@ footer {
     margin: 10px 0; /* Space between posts only */
 }
 
-/* New styles to eliminate margins around the first and last posts */
+/* New styles to eliminate margins around the first and last posts*/
+/* Targets direct children of flex-middle element*/
 .flex-middle > .post:first-child {
     margin-top: 0; /* Remove top margin for the first post */
 }

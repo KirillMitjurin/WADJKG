@@ -158,11 +158,12 @@ footer {
 }
 
 .links a {
-    color: #0c6bd8
+    color: #0c6bd8;
 }
 
 .links {
     margin-top: 24px;
+    font-size: 18px;
 }
 
 .links a:hover {
@@ -171,9 +172,22 @@ footer {
     color: #092747;
 }
 
+/* Adjacent sibling selector*/
+/* Changes style of p that directly follows a*/
+a + p {
+    font-size: 14px;
+    margin-top: 18px;
+}
+
+/* Adjacent general sibling selector*/
+/* Changes style of all p-s that follow a*/
+a ~ p {
+    font-style: italic;
+}
+
 .form-group {
     margin-bottom: 18px;
-  }
+}
   
 .form-group input {
     width: 90%;
@@ -192,11 +206,17 @@ footer {
     color: white;
     border: #699b95;
     border-radius: 5px;
-  }
+}
   
-  .login-button:hover {
+.login-button:hover {
     background-color: #699b95;
-  }
+}
+
+/* Descendant selector */
+/* Changes all p inside given container*/
+.flex-container p {
+    color: #092747;
+}
 
 
 /* Add post stuff */
@@ -205,10 +225,7 @@ footer {
     flex-direction: column;
     align-items: center;
     resize: none;
-
 }
-
-
 
 .post-form {
     background-color: #d3d3d3;
@@ -240,7 +257,7 @@ label {
     border-radius: 5px;
     border: 1px solid #ccc;
     resize: none;
-    min-height: 80px; 
+    min-height: 80px;
 }
 
 label + textarea {

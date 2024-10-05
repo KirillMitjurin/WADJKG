@@ -1,4 +1,5 @@
-<html lang="en"></html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -19,4 +20,28 @@
       ><img src="res/images/user.png" width="50" height="50" alt="User picture"
     /></a>
   </header>
+
+  <div class="flex-container">
+    <div class="addpost">
+      <form action="index.html" method="GET">
+        <div class="post-form">
+          <div class="textrow">
+            <label for="post-body">Post body</label>
+            <textarea id="post-body" rows="4" cols="30"></textarea>
+          </div>
+
+          <div class="textrow">
+            <label for="file-upload">Select<br>file</label>
+            <label for="file-upload" class="file-btn">Choose File</label>
+            <input type="file" id="file-upload" />
+          </div>
+          <div class="textrow centered">
+            <button type="submit" class="submit-btn">Create post</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
+
+</html>

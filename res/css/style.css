@@ -1,5 +1,5 @@
 * {
-    font-family: sans-serif;
+    font-family: monospace;
     box-sizing: border-box;
     /*
        CSS comment
@@ -17,6 +17,7 @@
      */
     }
 
+/*
 .header {
     padding-top: .5em;
     padding-bottom: .5em;
@@ -29,6 +30,18 @@
     left: 0%;
     overflow-x:hidden;
 }
+*/
+
+.header {
+    padding: 0.5em; /* Header padding */
+    background-color: rgb(184, 184, 184); /* Updated header color */
+    border-radius: 1em;
+    position: sticky;
+    height: 10%; /* Set header height */
+    width: 100%; /* Full width */
+    top: 0;
+    outline: 2px solid rgb(133, 133, 133);
+}
 
 ul {
     margin: 0;
@@ -40,7 +53,7 @@ ul {
     }
 
 .nav {
-    margin-top: 5px;
+    margin-top: 0px;
      }
 
 .nav a {

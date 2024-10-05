@@ -62,7 +62,7 @@ ul {
 
 @media (max-width: 599px) {
     .logo {
-        display: none;
+        display: flex;
     }
     #divider {
         border-left: none;

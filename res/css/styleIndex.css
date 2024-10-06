@@ -9,12 +9,12 @@ a {
 }
 
 .header {
-    padding: 0.5em; /* Header padding */
-    background-color: rgb(184, 184, 184); /* Updated header color */
+    padding: 0.5em;
+    background-color: rgb(184, 184, 184);
     border-radius: 1em;
     position: sticky;
-    height: 10%; /* Set header height */
-    width: 100%; /* Full width */
+    height: 10%;
+    width: 100%;
     top: 0;
     outline: 2px solid rgb(133, 133, 133);
 }
@@ -80,79 +80,75 @@ ul {
     font-size: 1.1em;
 }
 
-
 footer {
-    padding: 60px; /* Increased footer padding for thickness */
-    background-color: rgb(184, 184, 184); /* Updated footer color */
+    padding: 60px;
+    background-color: rgb(184, 184, 184);
     border-radius: 1em;
     position: relative;
-    width: 100%; /* Full width */
+    width: 100%;
     bottom: 0;
-    margin-top: 20px; /* Space between footer and divs */
+    margin-top: 20px;
     font-size: large;
 }
 
 .flex-container {
     display: flex;
-    justify-content: space-between; /* Align items across the container */
-    align-items: stretch; /* Stretch items to fill height */
-    height: auto; /* Full height minus header/footer */
-    margin-top: 20px; /* Space between header and divs */
+    justify-content: space-between;
+    align-items: stretch;
+    height: auto;
+    margin-top: 20px;
 }
 
 .flex-side {
-    flex: 0.5; /* Smaller size for side divs */
+    flex: 0.5;
     padding: 20px;
     text-align: center;
-    background-color: rgb(184, 184, 184); /* Updated side divs color */
+    background-color: rgb(184, 184, 184);
     border-radius: 15px;
 }
 
 .flex-middle {
-    flex: 2; /* Larger size for the middle div */
-    margin: 0 40px; /* Margin to create spacing from the sides */
-    background-color: white; /* Keep middle div red */
+    flex: 2;
+    margin: 0 40px;
+    background-color: white;
     border-radius: 15px;
     display: flex;
-    flex-direction: column; /* Stack posts vertically */
-    padding: 0; /* Remove padding to ensure posts fill the middle div */
+    flex-direction: column;
+    padding: 0;
 }
 
 @media (max-width: 599px) {
     .flex-container {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
     }
 
     .flex-side {
-        display: none; /* Hide side divs */
+        display: none;
     }
 
     .flex-middle {
-        flex: 1; /* Take full width */
-        margin: 0; /* Remove margin */
+        flex: 1;
+        margin: 0;
     }
 }
 
-
 .post {
-    background-color: #D8D8D8; /* Set post background color to match header */
-    padding: 15px; /* Padding inside posts */
-    border-radius: 10px; /* Rounded corners for posts */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    text-align: left; /* Align text to the left */
+    background-color: #D8D8D8;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
     display: flex;
     flex-direction: column;
-    margin: 10px 0; /* Space between posts only */
+    margin: 10px 0;
 }
 
-/* New styles to eliminate margins around the first and last posts*/
-/* Targets direct children of flex-middle element*/
 .flex-middle > .post:first-child {
-    margin-top: 0; /* Remove top margin for the first post */
+    margin-top: 0;
 }
 
 .flex-middle > .post:last-child {
-    margin-bottom: 0; /* Remove bottom margin for the last post */
+    margin-bottom: 0;
 }
 
 .post-header {
@@ -162,36 +158,48 @@ footer {
 }
 
 .user-pic {
-    width: 50px; /* Set width of user picture */
-    height: 50px; /* Set height of user picture */
-    border-radius: 50%; /* Make the picture circular */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .post-date {
-    font-size: 0.9em; /* Smaller font for date */
-    color: #555; /* Dark gray for date text */
-    font-family:monospace;
+    font-size: 0.9em;
+    color: #555;
+    font-family: monospace;
 }
 
 .post-image {
-    width: 100%; /* Make the post image responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin: 10px 0; /* Space above and below the image */
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
 }
 
 .post-text {
-    margin: 10px 0; /* Space above and below text */
+    margin: 10px 0;
     font-size: large;
-    font-family:monospace;
+    font-family: monospace;
 }
 
 .post-footer {
-    display: flex; /* Align items in footer */
-    align-items: center; /* Center align items */
+    display: flex;
+    align-items: center;
 }
 
 .thumbs-up {
-    width: 40px; /* Set width for thumbs up image */
-    height: 40px; /* Set height for thumbs up image */
-    margin-right: 10px; /* Space between thumbs up and any additional text */
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.flex-middle .post-text {
+    font-size: 1.2em; /* Larger font size for .post-text inside .flex-middle */
+}
+
+.post + .post {
+    padding-top: 25px; /* Posts following another post have extra padding */
+}
+
+.post:first-child ~ .post {
+    background-color: #f0f0f0; /* All posts after first one have slightly different color */
 }

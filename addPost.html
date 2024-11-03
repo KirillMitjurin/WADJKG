@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="res/images/favicon.ico" />
+    <title>Group project</title>
+    <link rel="stylesheet" href="res/css/style.css" />
+    <script src="src/js/script.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="res/images/favicon.ico" />
-  <title>Group project</title>
-  <link rel="stylesheet" href="res/css/style.css" />
-</head>
+  <body>
+    <header class="header">
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+      </ul>
 
-<body>
-  <header class="header">
-    <ul class="nav">
-      <li><a href="index.html">Home</a></li>
-    </ul>
-
-    <a class="logo" href="login.html"
-      ><img src="res/images/user.png" width="50" height="50" alt="User picture"
-    /></a>
-  </header>
-
-  <div class="flex-container">
-    <div class="addpost">
-      <form action="index.html" method="GET">
-        <div class="post-form">
-          <div class="textrow">
-            <label for="post-body">Post body</label>
-            <textarea id="post-body" rows="4" cols="30"></textarea>
-          </div>
-
-          <div class="textrow">
-            <label for="file-upload">Select<br>file</label>
-            <label for="file-upload" class="file-btn">Choose File</label>
-            <input type="file" id="file-upload" />
-          </div>
-          <div class="textrow centered">
-            <button type="submit" class="submit-btn">Create post</button>
+      <div class="profile-menu">
+        <a class="logo">
+          <img
+            src="res/images/user.png"
+            width="50"
+            height="50"
+            alt="User picture"
+            class="user-photo"
+          />
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            <p>John Doe</p>
+            <p>john.doe@ut.ee</p>
+            <a href="login.html">Logout</a>
           </div>
         </div>
-      </form>
-    </div>
-  </div>
-</body>
+      </div>
+    </header>
 
+    <div class="flex-container">
+      <div class="addpost">
+        <form action="index.html" method="GET">
+          <div class="post-form">
+            <div class="textrow">
+              <label for="post-body">Post body</label>
+              <textarea id="post-body" rows="4" cols="30"></textarea>
+            </div>
+
+            <div class="textrow">
+              <label for="file-upload">Select<br />file</label>
+              <label for="file-upload" class="file-btn">Choose File</label>
+              <input type="file" id="file-upload" />
+            </div>
+            <div class="textrow centered">
+              <button type="submit" class="submit-btn">Create post</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

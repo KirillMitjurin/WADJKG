@@ -1,5 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
     const postsContainer = document.querySelector(".flex-middle");
+    const userPhoto = document.querySelector(".user-photo");
+    const dropdown = document.querySelector(".dropdown");
+
+    userPhoto.addEventListener("click", () => {
+        dropdown.style.display = dropdown.style.display === "none" || dropdown.style.display === "" ? "block" : "none";
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener("click", (event) => {
+        if (!userPhoto.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
   
     function createPostHTML(post) {
       const postDate = new Date(post.createTime).toLocaleDateString("en-US", {
@@ -31,6 +44,24 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPosts(posts) {
       postsContainer.innerHTML = posts.map(createPostHTML).join("");
     }
+
+    function validateForm() {
+      // Get email value
+      const email = document.getElementById('email').value;
+
+      // Store email in session storage
+      sessionStorage.setItem('userEmail', email);
+      
+      // Optionally store user name or other details
+      // sessionStorage.setItem('userName', 'User Name'); // Set a name if needed
+
+      return true; // Continue to index.html
+  }
+
+  function logout() {
+      sessionStorage.removeItem('userEmail'); // Clear email on logout
+      // You can also redirect to login page after logout if needed
+  }
   
     // TASK 4
     /*

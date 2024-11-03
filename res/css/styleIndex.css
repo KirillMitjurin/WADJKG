@@ -78,6 +78,7 @@ ul {
     margin: 0;
     margin-top: 0em;
     font-size: 1.1em;
+    justify-content: right;
 }
 
 footer {
@@ -202,4 +203,42 @@ footer {
 
 .post:first-child ~ .post {
     background-color: #f0f0f0; /* All posts after first one have slightly different color */
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.user-photo {
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none; /* Hide the dropdown by default */
+    position: absolute;
+    right: 10px; /* Adjust based on your layout */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100; /* Ensure it sits above other content */
+}
+
+.dropdown-content {
+    padding: 10px;
+}
+
+.dropdown-content p, .dropdown-content a {
+    margin: 0;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #007bff; /* Bootstrap blue */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
 }

@@ -17,14 +17,24 @@
         <li id="divider"><a href="addPost.html">Add Post</a></li>
       </ul>
 
-      <a class="logo" href="login.html">
-        <img
-          src="res/images/user.png"
-          width="50"
-          height="50"
-          alt="User picture"
-        />
-      </a>
+      <div class="profile-menu">
+        <a class="logo">
+          <img
+            src="res/images/user.png"
+            width="50"
+            height="50"
+            alt="User picture"
+            class="user-photo"
+          />
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            <p>John Doe</p>
+            <p>john.doe@ut.ee</p>
+            <a href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <div class="flex-container">
@@ -68,9 +78,7 @@
             <div class="post-date">Oct 1, 2024</div>
           </div>
           <img src="res/images/delta.jpeg" class="post-image" alt="Sample" />
-          <div class="post-text">
-            Delta Centre - University of Tartu
-          </div>
+          <div class="post-text">Delta Centre - University of Tartu</div>
           <div class="post-footer">
             <img
               src="res/images/thumbsUp.png"

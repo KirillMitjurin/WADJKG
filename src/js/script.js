@@ -1,30 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const postsContainer = document.querySelector(".flex-middle");
+    const postsContainer = document.querySelector(".flex-middle"); // posts will be rendered in this container
     const userPhoto = document.querySelector(".user-photo");
     const dropdown = document.querySelector(".dropdown");
 
+    // event listener to toggle dropdown menu visibility
     userPhoto.addEventListener("click", () => {
         dropdown.style.display = dropdown.style.display === "none" || dropdown.style.display === "" ? "block" : "none";
     });
 
     // Close the dropdown if the user clicks outside of it
+    // hide dropdown if clicked outside
     window.addEventListener("click", (event) => {
         if (!userPhoto.contains(event.target) && !dropdown.contains(event.target)) {
             dropdown.style.display = "none";
         }
     });
   
+    // generates HTML for one post
     function createPostHTML(post) {
-      const postDate = new Date(post.createTime).toLocaleDateString("en-US", {
+      const postDate = new Date(post.createTime).toLocaleDateString("en-UK", {
         year: "numeric",
         month: "short",
         day: "numeric"
       });
   
+      // check post for image link, include image tag if applicable, otherwise empty
       const postImage = post.imageUrl
         ? `<img src="${post.imageUrl}" class="post-image" alt="Post Image" />`
         : "";
   
+      // returns html of the post, including profile pic, date, text, image if applicable
       return `
         <div class="post">
           <div class="post-header">
@@ -40,11 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }
-  
+    
+    // to render posts
     function renderPosts(posts) {
       postsContainer.innerHTML = posts.map(createPostHTML).join("");
     }
 
+    // handling form validation
     function validateForm() {
       // Get email value
       const email = document.getElementById('email').value;
@@ -55,9 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // Optionally store user name or other details
       // sessionStorage.setItem('userName', 'User Name'); // Set a name if needed
 
-      return true; // Continue to index.html
+      return true; // navigate to index.html
   }
 
+  // to log out
   function logout() {
       sessionStorage.removeItem('userEmail'); // Clear email on logout
       // You can also redirect to login page after logout if needed
@@ -73,10 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error("Error fetching from online source:", error));
     */
 
+    // fetching data from local json file in res/data
     fetch("res/data/data.json")
-      .then(response => response.json())
+      .then(response => response.json()) // converting response to json
       .then(data => {
-        renderPosts(data);
+        renderPosts(data); // render posts using fetched local data
       })
       .catch(error => console.error("Error fetching from local JSON file:", error));
   });

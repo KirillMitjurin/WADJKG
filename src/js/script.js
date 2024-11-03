@@ -18,11 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // generates HTML for one post
     function createPostHTML(post) {
-      const postDate = new Date(post.createTime).toLocaleDateString("en-UK", {
+      const postDateObj = new Date(post.createTime);
+
+      const postDate = postDateObj.toLocaleDateString("en-UK", {
         year: "numeric",
         month: "short",
         day: "numeric"
       });
+
+      const postTime = postDateObj.toLocaleTimeString("en-UK", {
+        hour: "2-digit",
+        minute: "2-digit"
+      })
+
+      const postDateFormatted = `${postDate} at ${postTime}`;
   
       // check post for image link, include image tag if applicable, otherwise empty
       const postImage = post.imageUrl
@@ -34,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="post">
           <div class="post-header">
             <img src="${post.profilePicture}" class="user-pic" alt="${post.author}" />
-            <div class="post-date">${postDate}</div>
+            <div class="post-date">${postDateFormatted}</div>
           </div>
           ${postImage}
           <div class="post-text">${post.text}</div>

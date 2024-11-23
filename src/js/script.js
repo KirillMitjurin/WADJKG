@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return true; // navigate to index.html
   }
 
-  // to log out
+  // to log 3out
   function logout() {
       sessionStorage.removeItem('userEmail'); // Clear email on logout
       // You can also redirect to login page after logout if needed

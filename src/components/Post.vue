@@ -17,4 +17,16 @@
     props: ['post'],
   };
   </script>
+
+<style scoped>
+.footer {
+  padding: 1em 0;
+  border-top: 2px solid #444;
+}
+
+.footer-content {
+  font-weight: bold;
+  font-size: 1rem;
+}
+</style>
   

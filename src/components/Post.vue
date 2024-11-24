@@ -1,9 +1,11 @@
 <template>
   <div class="post">
     <div class="post-header">
-      <div class="">{{post.author}}</div>
       <img :src="post.profilePicture" class="user-pic" :alt="post.author" />
-      <div class="post-date">{{ formattedDate }}</div>
+      <div class="post-info">
+        <div class="post-author">{{ post.author }}</div>
+        <div class="post-date">{{ formattedDate }}</div>
+      </div>
     </div>
     <img v-if="post.imageUrl" :src="post.imageUrl" class="post-image" alt="Post Image" />
     <div class="post-text">{{ post.text }}</div>

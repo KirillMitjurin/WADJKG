@@ -261,15 +261,44 @@ a ~ p {
     justify-content: left;
   }
   
-  .post-author {
+.post-author {
     font-weight: bold;
     font-size: 1rem;
-  }
-  
-  .post-date {
+}
+
+.post-date {
     font-size: 0.875rem;
     color: gray;
-  }
+}
+
+.post-footer {
+    display:flex;
+    gap: 12px;
+}
+
+.like-button {
+    font-size: 1.6rem;
+    padding: 3px 5px;
+    cursor: pointer;
+    transition: all 0.32s ease;
+    border: none;
+    outline: none;
+    box-shadow: #2b2a2a;
+}
+
+.like-button.liked {
+    background-color: #73a7e2;
+}
+
+.like-count {
+    font-size: 1rem;
+}
+
+.like-count.liked {
+    color: #396aa3;
+    font-weight: bold;
+}
+
 
 label {
     font-weight: bold;

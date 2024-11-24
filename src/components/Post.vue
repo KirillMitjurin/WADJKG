@@ -7,14 +7,26 @@
         <div class="post-date">{{ formattedDate }}</div>
       </div>
     </div>
+    
     <img v-if="post.imageUrl" :src="post.imageUrl" class="post-image" alt="Post Image" />
+    
     <div class="post-text">{{ post.text }}</div>
+
     <div class="post-footer">
-      <button class="like-button" @click="toggleLike">
-        {{ liked ? "👎 Unlike" : "👍 Like" }}
-      </button>
-      <span class="like-count">{{ likeCount }} likes</span>
-    </div>
+    <button
+      class="like-button"
+      :class="{ liked: liked }"
+      @click="toggleLike"
+    >
+      {{ liked ? "👍" : "👍" }}
+    </button>
+    <span
+      class="like-count"
+      :class="{ liked: liked }"
+    >
+      {{ likeCount }} likes
+    </span>
+  </div>
   </div>
 </template>
 
@@ -30,7 +42,7 @@ export default {
   data() {
     return {
       likeCount: this.post.likeCount, // Initialize with the post's like count
-      liked: false, // Tracks whether the user has liked this post
+      liked: false,
     };
   },
   computed: {
@@ -51,13 +63,11 @@ export default {
   methods: {
     toggleLike() {
       if (this.liked) {
-        // Unlike the post
         this.likeCount--;
       } else {
-        // Like the post
         this.likeCount++;
       }
-      this.liked = !this.liked; // Toggle the liked state
+      this.liked = !this.liked;
     },
   },
 };

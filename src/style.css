@@ -280,14 +280,18 @@ a ~ p {
     font-size: 1.6rem;
     padding: 3px 5px;
     cursor: pointer;
-    transition: all 0.32s ease;
-    border: none;
+    transition: background-color 0.32s ease;
+    border: 1px solid #999;
     outline: none;
-    box-shadow: #2b2a2a;
 }
 
 .like-button.liked {
     background-color: #73a7e2;
+    border: 1px solid #396aa3;
+}
+
+.like-button:hover {
+    border: 1px solid #73a7e2;
 }
 
 .like-count {

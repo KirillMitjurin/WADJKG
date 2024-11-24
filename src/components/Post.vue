@@ -70,5 +70,14 @@ export default {
       this.liked = !this.liked;
     },
   },
+  watch: {
+    post: {
+      deep: true,
+      handler(newPost) {
+        this.likeCount = newPost.likeCount;
+      },
+    },
+  },
+
 };
 </script>

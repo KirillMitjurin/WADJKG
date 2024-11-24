@@ -15,6 +15,7 @@
         <div class="flex-side left"></div>
         <div class="flex-middle">
           <Post v-for="post in posts" :key="post.postId" :post="post" />
+          <button class="reset-likes-button" @click="resetLikes">Reset All Likes</button>
         </div>
         <div class="flex-side right"></div>
       </div>
@@ -55,6 +56,13 @@ export default {
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
+    },
+    resetLikes() {
+      this.posts = this.posts.map(post => ({
+        ...post,
+        likeCount: 0, // Reset likeCount for each post
+      }));
+      alert("All likes have been reset to 0!");
     },
     handleSignUp(newUser) {
       // Add the new user to the list of users

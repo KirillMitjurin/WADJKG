@@ -3,7 +3,7 @@
     <div class="post-header">
       <div></div>
       <img :src="post.profilePicture" class="user-pic" :alt="post.author" />
-      <div class="">{{post.author}}</div>
+      <div>{{post.author}}</div>
       <div class="post-date">{{ formattedDate }}</div>
     </div>
     <img v-if="post.imageUrl" :src="post.imageUrl" class="post-image" alt="Post Image" />
@@ -25,8 +25,8 @@ export default {
     },
   },
   methods: {
-    addLike : function(){ 
-      this.$store.commit("likePost", this.post.id)
+    addLike() { 
+      this.$store.dispatch("likePost", this.post.id)
     }
   },
   computed: {

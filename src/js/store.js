@@ -1,11 +1,27 @@
 // /store/index.js
 import { createStore } from 'vuex'
+import createPersistedState from 'vuex-persistedstate';
 
-export default createStore({
+function loadState() {
+  const savedPosts = localStorage.getItem('postslist');
+  return savedPosts ? JSON.parse(savedPosts) : null;
+}
+
+function saveState(state) {
+  localStorage.setItem('postslist', JSON.stringify(state.postslist));
+}
+
+const store = createStore({
+  plugins: [
+    createPersistedState({
+      key: "vuex",
+      storage: window.localStorage,
+    }),
+  ],
   strict: true,
   state: {
     // productList should be placed here
-    postslist: [{
+    postslist: loadState() || [{
       "id": 1, "author": "Juri", "createTime": "2024-11-02T22:45:23Z", "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.visitestonia.com%2Fimages%2F3876926%2F1600_900_false_false_3b479f9b2dd1021abd3fcdbffc830787.jpg&f=1&nofb=1&ipt=02577bb51a4d79952d2636343e0a4cc8cdf2f474701f6ea03c95a27651712587&ipo=images",
       "text": "Tartu Town Hall Square",
       "profilePicture": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficon-library.com%2Fimages%2Funknown-person-icon%2Funknown-person-icon-4.jpg&f=1&nofb=1&ipt=33b28b6ff14c031c15a9917911a33404e11a8a1f4c0790482cf223e76f31af64&ipo=images",
@@ -91,17 +107,39 @@ export default createStore({
 
   mutations: {
     addLike(state, postId) {
-      const post = state.postslist.find((post) => post.postId === postId);
+      const post = state.postslist.find((post) => post.id === postId);
       if (post) {
-        post.likes += 1;
+        post.likeCount += 1;
       }
     },
+    resetLikes(state) {
+      state.postslist.forEach((post) => {
+        post.likeCount = 0;
+      });
+    },
+    syncState(state, newState) {
+      Object.assign(state, newState);
+    },
   },
-
-
   actions: {
     likePost({ commit }, postId) {
       commit("addLike", postId);
     },
+    resetAllLikes({ commit }) {
+      commit('resetLikes');
+    },
+    syncStore({ commit }, newState) {
+      commit("syncState", newState);
+    },
   },
-})
+});
+
+window.addEventListener("storage", (event) => {
+  if (event.key === "vuex") {
+    const newState = JSON.parse(event.newValue);
+    store.dispatch("syncStore", newState); // Sync state changes across tabs
+  }
+});
+
+export default store;
+

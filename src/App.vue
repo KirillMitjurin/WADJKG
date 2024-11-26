@@ -15,7 +15,7 @@
       <div class="flex-container">
         <div class="flex-side left"></div>
         <div class="flex-middle">
-          <Post v-for="post in posts" :key="post.postId" :post="post" />
+          <Post v-for="post in posts" :key="post.Id" :post="post" />
           <button v-on:click="resetAllLikes">Reset All Likes</button>
         </div>
         <div class="flex-side right"></div>
@@ -79,6 +79,9 @@ export default {
     },
     changePage(page) {
       this.currentPage = page;
+    },
+    resetAllLikes() {
+      this.$store.dispatch("resetAllLikes");
     },
   },
 };

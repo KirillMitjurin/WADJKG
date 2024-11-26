@@ -3,7 +3,8 @@
     <Header 
       @navigate="changePage" 
       @logout="handleLogout" 
-      :isLoggedIn="isLoggedIn"  />
+      :isLoggedIn="isLoggedIn" 
+    />
     <div v-if="currentPage === 'login'">
       <Login @login="handleLogin" @navigateToSignUp="goToSignUp" />
     </div>
@@ -15,7 +16,7 @@
         <div class="flex-side left"></div>
         <div class="flex-middle">
           <Post v-for="post in posts" :key="post.postId" :post="post" />
-          <button class="reset-likes-button" @click="resetLikes">Reset All Likes</button>
+          <button v-on:click="resetAllLikes">Reset All Likes</button>
         </div>
         <div class="flex-side right"></div>
       </div>
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Header from "./components/Header.vue";
 import Login from "./components/Login.vue";
 import SignUp from "./components/SignUp.vue";
@@ -38,40 +40,22 @@ export default {
     return {
       isLoggedIn: false,
       currentPage: "login", // Tracks current page: 'login', 'signup', or 'home'
-      posts: [], // Posts data
       users: [], // Stores all registered users
       currentUser: null,
     };
   },
-  created() {
-    this.fetchPosts(); // Fetch posts
+  computed: {
+    ...mapState({
+      posts: (state) => state.postslist, // Maps postslist from Vuex store
+    }),
   },
   methods: {
-    async fetchPosts() {
-      try {
-        const response = await fetch("/res/data/data.json");
-        if (!response.ok) throw new Error("Failed to fetch posts");
-        const data = await response.json();
-        this.posts = data;
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    },
-    resetLikes() {
-      this.posts = this.posts.map(post => ({
-        ...post,
-        likeCount: 0, // Reset likeCount for each post
-      }));
-      alert("All likes have been reset to 0!");
-    },
     handleSignUp(newUser) {
-      // Add the new user to the list of users
       this.users.push(newUser);
       alert("Sign-Up successful! Please log in.");
-      this.currentPage = "login"; // Redirect to Login page
+      this.currentPage = "login";
     },
     handleLogin(credentials) {
-      // Check if the user exists
       const user = this.users.find(
         (u) =>
           (u.username === credentials.usernameOrEmail ||
@@ -81,8 +65,8 @@ export default {
 
       if (user) {
         this.isLoggedIn = true;
-        this.currentUser = user; // Save logged-in user details
-        this.currentPage = "home"; // Redirect to Home page
+        this.currentUser = user;
+        this.currentPage = "home";
         alert(`Welcome, ${user.username}!`);
       } else {
         alert("Incorrect username/email or password!");
@@ -91,10 +75,10 @@ export default {
     handleLogout() {
       this.isLoggedIn = false;
       this.currentUser = null;
-      this.currentPage = "login"; // Redirect to Login page
+      this.currentPage = "login";
     },
     changePage(page) {
-      this.currentPage = page; // Handle page navigation
+      this.currentPage = page;
     },
   },
 };
